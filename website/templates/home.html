@@ -1,7 +1,10 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Filter your email for signs of spam and phishing</h1>
-<button type="button">Upload Emails (.CSV)</button>
-<button type="button">Begin Filtering (.CSV)</button>
+<h1>Upload your emails for spam/phishing detection</h1>
+<br>
+<form action="/action_page.php">
+    <input type="file" id="myFile" name="filename">
+    <input type="submit">
+  </form>
 {% endblock %}

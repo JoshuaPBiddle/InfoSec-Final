@@ -1,5 +1,43 @@
 {% extends "base.html" %} {% block title %}Report{% endblock %}
 
 {% block content %}
-<h1>This is the report page</h1>
+<h1>Email Report</h1>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  [data-href] { cursor: pointer; }
+
+</style>
+<table>
+    <tr>
+      <th>To:</th>
+      <th>From:</th>
+      <th>Spam?</th>
+    </tr>
+    <tr onclick="window.location='http://127.0.0.1:5000/email';">
+      <td>Eton1102@gmail.com</td>
+      <td>order-update@amazon.com</td>
+      <td>No</td>
+    </tr>
+    <tr onclick="window.location='http://127.0.0.1:5000/email';">
+      <td>Eton1102@gmail.com</td>
+      <td>order-update@amazon.com</td>
+      <td>No</td>
+    </tr>
+  </table>
+  <br>
+  <button>Download Full Email Report</button>
 {% endblock %}
