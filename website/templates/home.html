@@ -3,8 +3,15 @@
 {% block content %}
 <h1>Upload your emails for spam/phishing detection</h1>
 <br>
-<form action="/action_page.php">
-    <input type="file" id="myFile" name="filename">
-    <input type="submit">
+<form action="/" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Select file containing emails</label>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="csv" id="csv">
+        <label class="custom-file-label" for="csv"> .CSV </label>
+      </div>
+    </div>
+
+    <button onClick="" type="submit" class="btn btn-primary">Upload file</button>
   </form>
 {% endblock %}

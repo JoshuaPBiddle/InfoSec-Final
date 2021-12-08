@@ -16,7 +16,6 @@ classifier = MultinomialNB()
 # 2.Stop words in natural language processing, are useless words (data).
 
 def main():
-    print("Hello World")
     train()
     process_user_CSV()
 
