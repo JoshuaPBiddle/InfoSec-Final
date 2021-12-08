@@ -3,15 +3,32 @@
 {% block content %}
 <h1>Upload your emails for spam/phishing detection</h1>
 <br>
-<form action="/" method="POST" enctype="multipart/form-data">
+<form action="{{ url_for('auth.chart') }}" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label>Select file containing emails</label>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" name="csv" id="csv">
-        <label class="custom-file-label" for="csv"> .CSV </label>
-      </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="csv" id="csv">
+          <label for="csv" class="custom-file-label" id="csv_label"> .CSV </label>
+          <script type="text/javascript">
+            const customBtn = document.getElementById("csv");
+            const customLabel = document.getElementById("csv_label");
+
+            customBtn.addEventListener("change", function() {
+              if(customBtn.files[0].name){
+                customLabel.innerHTML = customBtn.files[0].name;
+              } else {
+                customLabel.innerHTML = "Upload File Here";
+              }
+            })
+
+            function getName() {
+              var filename = document.getElementById('csv').files[0].name;
+            }
+          </script>
+        </div>
     </div>
 
-    <button onClick="" type="submit" class="btn btn-primary">Upload file</button>
+    <button onClick="getName()" type="submit" class="btn btn-primary">Upload file</button>
   </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 {% endblock %}

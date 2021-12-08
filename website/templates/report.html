@@ -3,6 +3,12 @@
 {% block content %}
 <h1>Email Report</h1>
 <style>
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -18,26 +24,38 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .tr:nth-child(even) {
+    background-color: #dddddd;
+  }
   [data-href] { cursor: pointer; }
 
 </style>
 <table>
-    <tr>
-      <th>To:</th>
-      <th>From:</th>
-      <th>Spam?</th>
-    </tr>
-    <tr onclick="window.location='http://127.0.0.1:5000/email';">
-      <td>Eton1102@gmail.com</td>
-      <td>order-update@amazon.com</td>
-      <td>No</td>
-    </tr>
-    <tr onclick="window.location='http://127.0.0.1:5000/email';">
-      <td>Eton1102@gmail.com</td>
-      <td>order-update@amazon.com</td>
-      <td>No</td>
-    </tr>
-  </table>
-  <br>
-  <button>Download Full Email Report</button>
+  <tr>
+    <th>#</th>
+    <th>To:</th>
+    <th>From:</th>
+    <th>Spam?</th>
+  </tr>
+  {% for value in data %}
+  <tr>
+    <td><a href="{{ url_for('auth.email', value=value) }}" style="color:black">{{ value[0] }}</a></td>
+    <td><a href="{{ url_for('auth.email', value=value) }}" style="color:black">{{ value[1] }}</a></td>
+    <td><a href="{{ url_for('auth.email', value=value) }}" style="color:black">{{ value[2] }}</a></td>
+    <td>{{ value[5] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<br>
+
+<a href="{{ url_for('auth.downloadFile') }}">Download</a>
+
+<script>
+  jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
 {% endblock %}

@@ -1,15 +1,48 @@
 {% extends "base.html" %} {% block title %}Email{% endblock %}
 
 {% block content %}
-<h2>Email received at: Eton1102@gmail.com</h2> 
-<h2>From: order-update@amazon.com</h2>
-<br>
-<b>Content:</b>
-<p>Your order has been delivered to the address s... </p>
-<br>
-<p>Determined as: Not Spam</p>
+<style>
+    .table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    
+      .tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      [data-href] { cursor: pointer; }
+    
+    </style>
+<table>
+    <tr>
+      <th>#</th>
+      <th>To:</th>
+      <th>From:</th>
+      <th>Spam?</th>
+    </tr>
+    <tr>
+      <td>{{ data }}</td>
 
-<button>Download This Email Report</button>
+    </tr>
+  </table>
+
 
 
 {% endblock %}

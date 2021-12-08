@@ -1,8 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, current_app
+from flask import Blueprint, render_template, request, redirect
 import os
 views = Blueprint('views', __name__)
-
-
 
 @views.route("/", methods=["GET", "POST"])
 def home():
